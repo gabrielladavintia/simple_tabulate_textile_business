@@ -158,50 +158,80 @@ def membeliKain() :
         if(checker == 'tidak') :
             break
 
-while True :
-    pilihanMenu = input('''
-        Selamat Datang di Toko Kain Samudra
+def cetakResi():
+    # Selamat Datang untuk admin
+    print('Selamat Datang ke Toko Kain Samudra')
 
-        List Menu :
-        1. Jenis Kain Yang Kami Jual
-        2. Input Stock Kain Masuk
-        3. Menghapus Stock Kain
-        4. Membeli Kain
-        5. Cetak Resi
+    # Untuk nama pembeli dan apa yang dia mau beli
+    nama = input("Masukan nama pembeli ")
+    item = input("Jenis kain apa yang dibeli? ")
+    warna = input("Warna apa yang dibeli? ")
+    harga = float(input("Harga : Rp "))
+    kuantitas = int(input("kuantitas : "))
 
-        Masukkan angka Menu yang ingin dijalankan : ''')
+    # Hitung belanjaan
+    total_harga = harga*kuantitas
 
-    if(pilihanMenu == '1') :
-        menampilkanDaftarKain()
-    elif(pilihanMenu == '2') :
-        menambahKain()
-    elif(pilihanMenu == '3') :
-        menghapusKain()
-    elif(pilihanMenu == '4') :
-        membeliKain()
-    elif(pilihanMenu == '5') :
-        break
+    # Bukti transaksi
+    print()
+    print("=" * 50)
+    print("Bukti transaksi:")
+    print("Nama: " + nama.title())
+    print("Barang yang dibeli: " + item.lower() + " " + warna.capitalize())
+    print("Harga: Rp" + str(harga))
+    print("Kuantitas: "+str(kuantitas))
+    print("Total Harga: Rp" + str(total_harga))
+    print("=" * 50)
 
-# Selamat Datang untuk admin
-print('Selamat Datang ke Toko Kain Samudra')
 
-# Untuk nama pembeli dan apa yang dia mau beli
-nama = input("Masukan nama pembeli ")
-item = input("Jenis kain apa yang dibeli? ")
-warna = input("Warna apa yang dibeli? ")
-harga = float(input("Harga : Rp "))
-kuantitas = int(input("kuantitas : "))
+while True:
+    pilihanLogin = input('''
+        Login sebagai
+                         
+                         1. Admin
+                         2. Pembeli
+                         3. Keluar
+                         ''')
+    if pilihanLogin == '1':
 
-# Hitung belanjaan
-total_harga = harga*kuantitas
+        while True :
+            pilihanMenu = input('''
+                Selamat Datang di Toko Kain Samudra
 
-# Bukti transaksi
-print()
-print("=" * 50)
-print("Bukti transaksi:")
-print("Nama: " + nama.title())
-print("Barang yang dibeli: " + item.lower() + " " + warna.capitalize())
-print("Harga: Rp" + str(harga))
-print("Kuantitas: "+str(kuantitas))
-print("Total Harga: Rp" + str(total_harga))
-print("=" * 50)
+                List Menu :
+                1. Jenis Kain Yang Kami Jual
+                2. Input Stock Kain Masuk
+                3. Menghapus Stock Kain
+                4. Pembelian Kain
+                5. Logout
+
+                Masukkan angka Menu yang ingin dijalankan : ''')
+
+            if(pilihanMenu == '1') :
+                menampilkanDaftarKain()
+            elif(pilihanMenu == '2') :
+                menambahKain()
+            elif(pilihanMenu == '3') :
+                menghapusKain()
+            elif(pilihanMenu == '4') :
+                membeliKain()
+            elif(pilihanMenu == '5') :
+                break
+    elif pilihanLogin == '2':
+        while True :
+            pilihanMenu = input('''
+                Selamat Datang di Toko Kain Samudra
+
+                List Menu :
+                1. Jenis Kain Yang Kami Jual
+                2. Pembelian Kain
+                3. Cetak Resi
+
+                Masukkan angka Menu yang ingin dijalankan : ''')
+
+            if(pilihanMenu == '1') :
+                menampilkanDaftarKain()
+            elif(pilihanMenu == '2') :
+                membeliKain()
+            elif(pilihanMenu == '3') :
+                cetakResi()
